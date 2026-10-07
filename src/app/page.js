@@ -1,69 +1,59 @@
-import Image from "next/image";
-
 export default function Home() {
+  const proyectos = [
+    {
+      id: "crm",
+      titulo: "Sistema CRM",
+      descripcion: "Gestión avanzada de clientes, embudos de venta y seguimiento de leads en tiempo real.",
+      icono: "💼",
+      color: "border-blue-500 hover:bg-blue-50/50"
+    },
+    {
+      id: "pdv",
+      titulo: "Punto de Venta (POS)",
+      descripcion: "Control de inventario automatizado, registro de ventas y facturación rápida para comercios.",
+      icono: "🛒",
+      color: "border-green-500 hover:bg-green-50/50"
+    },
+    {
+      id: "airbnb",
+      titulo: "Autogestión Airbnb (IA)",
+      descripcion: "Plataforma de hospedaje con agentes autónomos de IA y skills integradas para atención a huéspedes.",
+      icono: "🤖",
+      color: "border-purple-500 hover:bg-purple-50/50"
+    }
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
+    <main className="min-h-screen bg-slate-900 text-white p-8 md:p-24">
+      <div className="max-w-5xl mx-auto">
+        {/* Encabezado del Portafolio */}
+        <header className="mb-16 border-b border-slate-800 pb-8">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+            Mi Portafolio de Aplicaciones Inteligentes
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-slate-400 text-lg">
+            Bienvenido a mi ecosistema de proyectos integrados. Desarrollado desde cero con Next.js, Tailwind CSS e Inteligencia Artificial.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </header>
+
+        {/* Rejilla de Proyectos */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {proyectos.map((proy) => (
+            <div
+              key={proy.id}
+              className={`p-6 bg-slate-800/50 rounded-xl border-2 transition-all duration-300 cursor-pointer ${proy.color}`}
+            >
+              <div className="text-4xl mb-4">{proy.icono}</div>
+              <h2 className="text-2xl font-bold mb-2">{proy.titulo}</h2>
+              <p className="text-slate-400 text-sm leading-relaxed">{proy.descripcion}</p>
+              
+              <div className="mt-6 inline-flex items-center text-sm font-semibold text-blue-400 hover:text-blue-300">
+                Explorar módulo &rarr;
+              </div>
+            </div>
+          ))}
+        </section>
+      </div>
+    </main>
   );
 }
